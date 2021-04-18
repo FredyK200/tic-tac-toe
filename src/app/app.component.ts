@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   private socket: any;
   public name;
   public players = {playerX: false, playerO: false};
-  public player;
+  public player = null;
   public turn;
   public connected=true;
   public gameName;
@@ -64,8 +64,10 @@ export class AppComponent implements OnInit {
     this.socket.emit("clearBoard", this.name);
   }
 
-  public selectPlayer(selection){
-    this.player = selection;
-    this.socket.emit("selection", selection);
+  public selectPlayer(selection) {
+    if (this.player == null) {
+      this.player = selection;
+      this.socket.emit("selection", selection);
+    }
   }
 }
