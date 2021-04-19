@@ -37,16 +37,21 @@ export class AppComponent implements OnInit {
       this.turn = turn;
     })
     this.socket.on("clearBoard", player => {
-      this.player = "";
+    this.player = null;
       alert(player + " Cleared The Board");
     });
     this.socket.on("players", players => {
       this.players = players;
     });
     this.socket.on("winner", winner => {
-      if (winner != ""){
-        alert(winner + " Wins!"); 
+      if (winner != "") {
+        alert(winner + " Wins!");
       }
+    });
+    this.socket.on("message", text => {
+      const el = document.createElement('li');
+      el.innerHTML = text;
+      document.querySelector('ul');
     });
   }
 
@@ -60,14 +65,22 @@ export class AppComponent implements OnInit {
     }
   }
 
-  public clearBoard(){
+  public clearBoard() {
+    console.log(this.player);
     this.socket.emit("clearBoard", this.name);
   }
 
   public selectPlayer(selection) {
+    console.log(this.player);
     if (this.player == null) {
       this.player = selection;
       this.socket.emit("selection", selection);
     }
+  }
+
+  public sendMessage() {
+    const text = (<HTMLInputElement>document.getElementById("messageField")).value;
+
+    this.socket.emit("message", [this.player, text]);
   }
 }
