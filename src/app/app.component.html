@@ -1,27 +1,27 @@
 <input (keyup)="setName($event)" mat-input placeholder="Name"> <p>{{player}}</p>
-<div *ngIf="name">
-  <button [disabled]="players['playerX']" (click)="selectPlayer('X')">X</button>  <button [disabled]="players['playerO']" (click)="selectPlayer('O')">O</button>
-    <mat-grid-list cols="3" rowHeight="100px" rowWidth="100px">
-      <!-- Top Row -->
-      <mat-grid-tile (click)="move(0)"><h1>{{board[0][0]}}</h1></mat-grid-tile>   
-      <mat-grid-tile (click)="move(1)"><h1>{{board[0][1]}}</h1></mat-grid-tile>
-      <mat-grid-tile (click)="move(2)"><h1>{{board[0][2]}}</h1></mat-grid-tile>
-      <!-- Middle Row -->
-      <mat-grid-tile (click)="move(3)"><h1>{{board[1][0]}}</h1></mat-grid-tile>   
-      <mat-grid-tile (click)="move(4)"><h1>{{board[1][1]}}</h1></mat-grid-tile>
-      <mat-grid-tile (click)="move(5)"><h1>{{board[1][2]}}</h1></mat-grid-tile>
-      <!-- Bottom Row -->
-      <mat-grid-tile (click)="move(6)"><h1>{{board[2][0]}}</h1></mat-grid-tile>   
-      <mat-grid-tile (click)="move(7)"><h1>{{board[2][1]}}</h1></mat-grid-tile>
-      <mat-grid-tile (click)="move(8)"><h1>{{board[2][2]}}</h1></mat-grid-tile>
-      
-    </mat-grid-list>
-    <button (click)="clearBoard()" [disabled]="!name">Clear</button>
+                                                               <div *ngIf="name">
+                                                                 <button [disabled]="players['playerX']" (click)="selectPlayer('X')">X</button>  <button [disabled]="players['playerO']" (click)="selectPlayer('O')">O</button>
+                                                                 <mat-grid-list cols="3" rowHeight="100px" rowWidth="100px">
+                                                                   <!-- Top Row -->
+                                                                   <mat-grid-tile (click)="move(0)"><h1>{{board[0][0]}}</h1></mat-grid-tile>
+                                                                   <mat-grid-tile (click)="move(1)"><h1>{{board[0][1]}}</h1></mat-grid-tile>
+                                                                   <mat-grid-tile (click)="move(2)"><h1>{{board[0][2]}}</h1></mat-grid-tile>
+                                                                   <!-- Middle Row -->
+                                                                   <mat-grid-tile (click)="move(3)"><h1>{{board[1][0]}}</h1></mat-grid-tile>
+                                                                   <mat-grid-tile (click)="move(4)"><h1>{{board[1][1]}}</h1></mat-grid-tile>
+                                                                   <mat-grid-tile (click)="move(5)"><h1>{{board[1][2]}}</h1></mat-grid-tile>
+                                                                   <!-- Bottom Row -->
+                                                                   <mat-grid-tile (click)="move(6)"><h1>{{board[2][0]}}</h1></mat-grid-tile>
+                                                                   <mat-grid-tile (click)="move(7)"><h1>{{board[2][1]}}</h1></mat-grid-tile>
+                                                                   <mat-grid-tile (click)="move(8)"><h1>{{board[2][2]}}</h1></mat-grid-tile>
 
-  <ul>
+                                                                 </mat-grid-list>
+                                                                 <button (click)="clearBoard()" [disabled]="!name">Clear Board</button>
+                                                                 <button (click)="clearChat()" [disabled]="!name">Clear Chat</button>
 
-   </ul>
+                                                                 <ul>
+                                                                 </ul>
 
-  <input id="messageField" placeholder="message" />
-  <button (click)="sendMessage()">Send</button>
-</div>
+                                                                 <input id="messageField" placeholder="message" />
+                                                                 <button (click)="sendMessage()">Send</button>
+                                                               </div>
